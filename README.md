@@ -7,3 +7,6 @@ __CodeIgniter__: GateKeeper is built with CodeIgniter framework. CodeIgniter is 
 __Composer__: For dependency management
 
 __Proper__: For ORM and database query
+
+## Design of GateKeeper
+To see the software architecture files please go to the Architecture folder and download `design.archimate`
