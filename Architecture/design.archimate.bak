@@ -40,6 +40,8 @@
       <element xsi:type="archimate:ArchimateDiagramModel" id="a288c2f1" name="Group"/>
       <element xsi:type="archimate:ArchimateDiagramModel" id="7fe47f5f" name="Entity"/>
     </folder>
+    <folder name="Controllers" id="0f5efc4b"/>
+    <folder name="Services" id="dc53813d"/>
     <element xsi:type="archimate:ArchimateDiagramModel" id="705ffc3f" name="Overview">
       <child xsi:type="archimate:DiagramObject" id="590655ad" textAlignment="2" archimateElement="cb549248">
         <bounds x="168" y="48" width="120" height="55"/>
