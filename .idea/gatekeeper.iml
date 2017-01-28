@@ -12,9 +12,14 @@
       <sourceFolder url="file://$MODULE_DIR$/application/controllers" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/application/models" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/application/views" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Architecture" />
       <excludeFolder url="file://$MODULE_DIR$/Codeigniter" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/mikey179/vfsStream" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/twbs/bootstrap" />
       <excludeFolder url="file://$MODULE_DIR$/user_guide" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -35,6 +40,20 @@
         </CLASSES>
         <SOURCES>
           <root url="phar://$MODULE_DIR$/composer.phar/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/assets/composer" />
+          <root url="file://$MODULE_DIR$/assets/mikey179/vfsStream" />
+          <root url="file://$MODULE_DIR$/assets/twbs/bootstrap" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/assets/composer" />
+          <root url="file://$MODULE_DIR$/assets/mikey179/vfsStream" />
+          <root url="file://$MODULE_DIR$/assets/twbs/bootstrap" />
         </SOURCES>
       </library>
     </orderEntry>
