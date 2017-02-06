@@ -26,8 +26,39 @@ class HomeController extends CI_Controller
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
 
+    function __construct ()
+    {
+        parent::__construct();
+        $this->load->helper('url');
+    }
+
     public function index ()
     {
         $this->load->view('home');
+    }
+
+    public function inProgress ()
+    {
+        $this->load->view('inProgress');
+    }
+
+    public function Introduction ()
+    {
+
+    }
+
+    public function Documentation ()
+    {
+
+    }
+
+    public function GitHub ()
+    {
+        redirect('https://github.com/mohammad-yazdani/gatekeeper', 'refresh');
+    }
+
+    public function Registration ()
+    {
+
     }
 }
