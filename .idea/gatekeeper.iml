@@ -8,16 +8,25 @@
       <sourceFolder url="file://$MODULE_DIR$/Test/Service" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/www" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/application" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/system" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/application/controllers" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/application/models" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/application/views" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/application/models" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Architecture" />
       <excludeFolder url="file://$MODULE_DIR$/Codeigniter" />
       <excludeFolder url="file://$MODULE_DIR$/assets/components/jquery" />
       <excludeFolder url="file://$MODULE_DIR$/assets/composer" />
       <excludeFolder url="file://$MODULE_DIR$/assets/mikey179/vfsStream" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/propel/propel" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/symfony/config" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/symfony/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/symfony/filesystem" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/symfony/validator" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/assets/twbs/bootstrap" />
       <excludeFolder url="file://$MODULE_DIR$/user_guide" />
       <excludeFolder url="file://$MODULE_DIR$/vendor" />
@@ -50,12 +59,34 @@
           <root url="file://$MODULE_DIR$/assets/components/jquery" />
           <root url="file://$MODULE_DIR$/assets/composer" />
           <root url="file://$MODULE_DIR$/assets/mikey179/vfsStream" />
+          <root url="file://$MODULE_DIR$/assets/propel/propel" />
+          <root url="file://$MODULE_DIR$/assets/psr/log" />
+          <root url="file://$MODULE_DIR$/assets/symfony/config" />
+          <root url="file://$MODULE_DIR$/assets/symfony/console" />
+          <root url="file://$MODULE_DIR$/assets/symfony/debug" />
+          <root url="file://$MODULE_DIR$/assets/symfony/filesystem" />
+          <root url="file://$MODULE_DIR$/assets/symfony/finder" />
+          <root url="file://$MODULE_DIR$/assets/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/assets/symfony/translation" />
+          <root url="file://$MODULE_DIR$/assets/symfony/validator" />
+          <root url="file://$MODULE_DIR$/assets/symfony/yaml" />
           <root url="file://$MODULE_DIR$/assets/twbs/bootstrap" />
         </CLASSES>
         <SOURCES>
           <root url="file://$MODULE_DIR$/assets/components/jquery" />
           <root url="file://$MODULE_DIR$/assets/composer" />
           <root url="file://$MODULE_DIR$/assets/mikey179/vfsStream" />
+          <root url="file://$MODULE_DIR$/assets/propel/propel" />
+          <root url="file://$MODULE_DIR$/assets/psr/log" />
+          <root url="file://$MODULE_DIR$/assets/symfony/config" />
+          <root url="file://$MODULE_DIR$/assets/symfony/console" />
+          <root url="file://$MODULE_DIR$/assets/symfony/debug" />
+          <root url="file://$MODULE_DIR$/assets/symfony/filesystem" />
+          <root url="file://$MODULE_DIR$/assets/symfony/finder" />
+          <root url="file://$MODULE_DIR$/assets/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/assets/symfony/translation" />
+          <root url="file://$MODULE_DIR$/assets/symfony/validator" />
+          <root url="file://$MODULE_DIR$/assets/symfony/yaml" />
           <root url="file://$MODULE_DIR$/assets/twbs/bootstrap" />
         </SOURCES>
       </library>
