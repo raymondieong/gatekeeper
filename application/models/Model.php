@@ -15,10 +15,11 @@
 abstract class Model
 {
     /*
-     * getJSON is implemented for every model class to
-     * return appropriate data in form of JSON string.
+     * For every model class field JSON is to
+     * store it's appropriate data in form of
+     * stringify JSON object.
      *
-     * return type: string
+     * type: string
      */
-    abstract protected function getJSON();
+    protected $JSON;
 }
