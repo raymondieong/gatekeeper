@@ -943,9 +943,9 @@ class Connection implements DriverConnection
         if ($logger) {
             $logger->startQuery($args[0]);
         }
-
+      
         try {
-            $statement = $this->_conn->query(...$args);
+            $statement = $this->_conn->query($args);
         } catch (Exception $ex) {
             throw DBALException::driverExceptionDuringQuery($this->_driver, $ex, $args[0]);
         }

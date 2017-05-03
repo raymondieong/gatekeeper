@@ -18,7 +18,7 @@ class ClientController extends \CI_Controller
 
     public function GetClient()
     {
-
+      
     }
 
     public function NewClient()

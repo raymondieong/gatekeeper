@@ -38,8 +38,7 @@ class ClientDAOImpl implements ClientDAO
             $this->em->persist($client);
             // TODO : DOC
             $this->em->flush();
-        }
-        // TODO : DOC
+        } // TODO : DOC
         catch (\Exception $exception) {
             die($exception->getMessage());
         }

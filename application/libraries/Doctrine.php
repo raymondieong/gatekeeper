@@ -12,7 +12,7 @@ use Doctrine\Common\ClassLoader,
     Doctrine\Common\Cache\ArrayCache,
     Doctrine\DBAL\Logging\EchoSQLLogger,
     Doctrine\ORM\Tools\Setup,
-    Doctrine\ORM\EntityManager;
+    Doctrine\ORM\EntityManager as EntityManager2;
 
 class Doctrine {
 
@@ -53,15 +53,15 @@ class Doctrine {
         $config->setSQLLogger($logger);
 
         $config->setAutoGenerateProxyClasses( TRUE );
-
+      
         // Database connection information
 
         $connectionOptions = array(
-            'driver' => 'pdo_mysql',
-            'user' =>     $db['default']['root'],
-            'password' => $db['default']['root1234'],
-            'host' =>     $db['default']['localhost'],
-            'dbname' =>   $db['default']['gatekeeper']
+          'dbname' =>   'gatekeeper',
+          'user' =>     'root',
+          'password' => 'root1234',
+          'host' =>     'localhost',   
+          'driver' => 'pdo_mysql'
         );
 
         // Create EntityManager
