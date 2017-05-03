@@ -6,10 +6,18 @@
  * Time: 5:49 PM
  */
 
+
+
 namespace application\helpers\DAO;
 
 
-class ClientDAOImpl
+class ClientDAOImpl implements ClientDAO
 {
-
+  public function getClientById($id) {
+    
+  }
+  
+  public function getClientByUID($uid) {
+    
+  }
 }
