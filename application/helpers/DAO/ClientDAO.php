@@ -11,13 +11,9 @@ namespace application\helpers\DAO;
 
 use models\Client;
 
-interface ClientDAO
+interface ClientDAO extends DAO
 {
-    public function save(Client $client);
-
     public function get($id);
 
-    public function delete($id);
-
-    public function update(Client $client);
+    public function delete(Client $client);
 }

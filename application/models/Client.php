@@ -15,25 +15,26 @@ namespace models;
 class Client extends \Model
 {
     /**
+    * Constructor
+    */
+    public function __construct($name : string) 
+    {
+      parent::__construct();
+      this->$name = $name;
+      this->setJSON(json_encode($this));
+    }
+  
+    /**
      * @Id @Column(type="integer")
      * @GeneratedValue
      */
     private $clientId;
 
-    /** @Column(type="integer") */
-    private $uid;
-
     /** @Column(type="string") */
     private $name;
 
-    /** @Column(type="date")  */
-    private $dateCreated;
-
-    /** @Column(type="date")  */
-    private $dateModified;
-
     /**
-     * @return mixed
+     * @return int
      */
     public function getClientId()
     {
@@ -41,7 +42,7 @@ class Client extends \Model
     }
 
     /**
-     * @param mixed $clientId
+     * @param int $clientId
      */
     public function setClientId($clientId)
     {
@@ -49,23 +50,7 @@ class Client extends \Model
     }
 
     /**
-     * @return mixed
-     */
-    public function getUid()
-    {
-        return $this->uid;
-    }
-
-    /**
-     * @param mixed $uid
-     */
-    public function setUid($uid)
-    {
-        $this->uid = $uid;
-    }
-
-    /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -73,58 +58,10 @@ class Client extends \Model
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName($name)
     {
         $this->name = $name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateCreated()
-    {
-        return $this->dateCreated;
-    }
-
-    /**
-     * @param mixed $dateCreated
-     */
-    public function setDateCreated($dateCreated)
-    {
-        $this->dateCreated = $dateCreated;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDateModified()
-    {
-        return $this->dateModified;
-    }
-
-    /**
-     * @param mixed $dateModified
-     */
-    public function setDateModified($dateModified)
-    {
-        $this->dateModified = $dateModified;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getJSON()
-    {
-        return $this->JSON;
-    }
-
-    /**
-     * @param mixed $JSON
-     */
-    public function setJSON($JSON)
-    {
-        $this->JSON = $JSON;
     }
 }

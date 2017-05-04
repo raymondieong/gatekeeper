@@ -13,21 +13,14 @@ namespace application\helpers\DAO;
 require_once(APPPATH."models/Client.php");
 use models\Client;
 
-class ClientDAOImpl implements ClientDAO
+class ClientDAOImpl extends DAOImpl implements ClientDAO
 {
-    /**
-     * @var \Doctrine\ORM\EntityManager $em
-     */
-    var $em;
-
     /**
      * ClientDAOImpl constructor.
      */
     public function __construct()
     {
         parent::__construct();
-        // Connect to Doctrine.
-        $this->em = $this->doctrine->em;
     }
 
     public function save(Client $client)
@@ -50,16 +43,27 @@ class ClientDAOImpl implements ClientDAO
     public function get($id)
     {
         // TODO: Implement get() method.
-
+        
     }
 
-    public function delete($id)
+    public function delete(Client $client)
     {
         // TODO: Implement delete() method.
     }
+    
+  
+	public function getByDateCreated($date : DateTime) : array
+  {
+      
+  }
 
-    public function update(Client $client)
-    {
-        // TODO: Implement update() method.
-    }
+	public function getByDateModified($date : DateTime) : array
+  {
+    
+  }
+  
+	public function getByJSON($json : string) : \Model
+  {
+    
+  }
 }
