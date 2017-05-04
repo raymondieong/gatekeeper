@@ -10,12 +10,10 @@
 
 interface DAO 
 {
-	// TODO : To save/update object
-	public function save($object);
   // TODO : Should have get based on date created
-	public function getByDateCreated($date : DateTime) : array;
+	public function getByDateCreated(DateTime $date) : array;
   // TODO : Should have get based on date modified
-	public function getByDateModified($date : DateTime) : array;
+	public function getByDateModified(DateTime $date) : array;
   // TODO : Get based on JSON
-	public function getByJSON($json : string) : \Model;
+	public function getByJSON(string $json) : \Model;
 }

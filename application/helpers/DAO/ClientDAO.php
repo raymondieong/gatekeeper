@@ -11,7 +11,7 @@ namespace application\helpers\DAO;
 
 use models\Client;
 
-interface ClientDAO extends DAO
+interface ClientDAO extends \DAO
 {
     public function get($id);
 

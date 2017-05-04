@@ -13,8 +13,10 @@ namespace application\helpers\DAO;
 
 require_once(APPPATH."models/Client.php");
 use models\Client;
+use Symfony\Component\Config\Definition\Exception\Exception;
+use Symfony\Component\Validator\Constraints\DateTime;
 
-class ClientDAOImpl extends DAOImpl implements ClientDAO
+class ClientDAOImpl extends \DAOImpl implements ClientDAO
 {
     /**
      * ClientDAOImpl constructor.
@@ -28,7 +30,7 @@ class ClientDAOImpl extends DAOImpl implements ClientDAO
     {
         // The object to be saved is the parameter $client of type "model/Client"
         try 
-				{
+        {
             // TODO : DOC
             $this->em->persist($client);
             // TODO : DOC
@@ -51,9 +53,9 @@ class ClientDAOImpl extends DAOImpl implements ClientDAO
 			{
 					$client = $this->em->getRepository('client')->find($id);	
 			}
-			catch (...) 
-			{
-			
+			catch (Exception $e)
+            {
+                // TODO : Handle exceptions
 			}
 			return $client;
     }
@@ -62,44 +64,44 @@ class ClientDAOImpl extends DAOImpl implements ClientDAO
     {
       // TODO : Implement delete() method.
 			// TODO : Handle FAILURE
-			$this->em->delete($client);
+			$this->em->remove($client);
 			$this->em->flush();
     }
     
-  
-	public function getByDateCreated($date : DateTime) : array
-  {
-		try 
-		{
-			$this->em->findBy(array('dateCreated' => $date));
-		}
-		catch (...)
-		{
-			
-		}
-  }
 
-	public function getByDateModified($date : DateTime) : array
-  {
-    try 
-		{
-			$this->em->findBy(array('dateModified' => $date));
-		}
-		catch (...)
-		{
+    public function getByDateCreated(\DateTime $date) : array
+    {
+        try
+        {
+
+        }
+        catch (Exception $e)
+        {
+            // TODO : Handle exceptions
+        }
+    }
+
+	public function getByDateModified(\DateTime $date) : array
+    {
+        try
+        {
+
+        }
+        catch (Exception $e)
+        {
 			
-		}
-  }
+        }
+    }
   
-	public function getByJSON($json : string) : \Model
-  {
+	public function getByJSON(string $json) : \Model
+    {
     try 
 		{
-			$this->em->findBy(array('JSON' => $json));
+
 		}
-		catch (...)
+		catch (Exception $e)
 		{
-			
+			// TODO : Handle exceptions
 		}
-  }
+    }
 }

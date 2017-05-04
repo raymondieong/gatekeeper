@@ -16,12 +16,12 @@ class Client extends \Model
 {
     /**
     * Constructor
+     * @param string $name
     */
-    public function __construct($name : string) 
+    public function __construct(string $name)
     {
-      parent::__construct();
-      this->$name = $name;
-      this->setJSON(json_encode($this));
+      $this->$name = $name;
+      $this->setJSON(json_encode($this));
     }
   
     /**
@@ -36,7 +36,7 @@ class Client extends \Model
     /**
      * @return int
      */
-    public function getClientId()
+    public function getClientId() : int
     {
         return $this->clientId;
     }
@@ -44,7 +44,7 @@ class Client extends \Model
     /**
      * @param int $clientId
      */
-    public function setClientId($clientId)
+    public function setClientId(int $clientId)
     {
         $this->clientId = $clientId;
     }
@@ -52,7 +52,7 @@ class Client extends \Model
     /**
      * @return string
      */
-    public function getName()
+    public function getName() : string
     {
         return $this->name;
     }
@@ -60,7 +60,7 @@ class Client extends \Model
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
