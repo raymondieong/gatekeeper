@@ -18,11 +18,13 @@ class ClientController extends \CI_Controller
 
     public function GetClient()
     {
-      
+        // TODO : TEST
+        echo "TEST GET CLIENT";
     }
 
     public function NewClient()
     {
-
+        // TODO : TEST
+        echo "NEW CLIENT";
     }
 }

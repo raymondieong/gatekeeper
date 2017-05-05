@@ -14,7 +14,6 @@ namespace application\helpers\DAO;
 require_once(APPPATH."models/Client.php");
 use models\Client;
 use Symfony\Component\Config\Definition\Exception\Exception;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class ClientDAOImpl extends \DAOImpl implements ClientDAO
 {
@@ -79,6 +78,7 @@ class ClientDAOImpl extends \DAOImpl implements ClientDAO
         {
             // TODO : Handle exceptions
         }
+        return null;
     }
 
 	public function getByDateModified(\DateTime $date) : array
@@ -91,6 +91,7 @@ class ClientDAOImpl extends \DAOImpl implements ClientDAO
         {
 			
         }
+        return null;
     }
   
 	public function getByJSON(string $json) : \Model
@@ -103,5 +104,6 @@ class ClientDAOImpl extends \DAOImpl implements ClientDAO
 		{
 			// TODO : Handle exceptions
 		}
+		return null;
     }
 }
