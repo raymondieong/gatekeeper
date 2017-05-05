@@ -12,7 +12,10 @@ use Doctrine\Common\ClassLoader,
     Doctrine\Common\Cache\ArrayCache,
     Doctrine\DBAL\Logging\EchoSQLLogger,
     Doctrine\ORM\Tools\Setup,
-    Doctrine\ORM\EntityManager as EntityManager2;
+    Doctrine\ORM\EntityManager as EntityManager2,
+    Doctrine\ORM\Mapping\Driver\AnnotationDriver,
+    Doctrine\Common\Annotations\AnnotationReader,
+    Doctrine\Common\Annotations\AnnotationRegistry;
 
 class Doctrine {
 
@@ -38,7 +41,7 @@ class Doctrine {
         $config = new Configuration;
         $cache = new ArrayCache;
         $config->setMetadataCacheImpl($cache);
-        $driverImpl = $config->newDefaultAnnotationDriver(array(APPPATH.'models/Entities'));
+        $driverImpl = $config->newDefaultAnnotationDriver(array(APPPATH.'models/Entities'), false);
         $config->setMetadataDriverImpl($driverImpl);
         $config->setQueryCacheImpl($cache);
 
@@ -66,5 +69,9 @@ class Doctrine {
 
         // Create EntityManager
         $this->em = EntityManager::create($connectionOptions, $config);
+      
+        $schemaTool = new \Doctrine\ORM\Tools\SchemaTool($this->em);
+        $classes = $this->em->getMetadataFactory()->getAllMetadata();
+        $schemaTool->createSchema($classes);
     }
 }

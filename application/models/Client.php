@@ -8,9 +8,16 @@
 
 namespace models;
 
+use Doctrine\ORM\Mapping as ORM;
+require_once 'Model.php';
+
+
+// TODO : Find non-casting solution
+
 /**
- * @Entity
- * @Table(name="client")
+ * @ORM\Entity(repositoryClass="Client")
+ * @ORM\Table(name="client")
+ * 
  */
 class Client extends \Model
 {
@@ -18,25 +25,27 @@ class Client extends \Model
     * Constructor
      * @param string $name
     */
-    public function __construct(string $name)
+    public function __construct($name)
     {
-      $this->$name = $name;
-      $this->setJSON(json_encode($this));
+      parent::__construct();
+      //echo $name." passed to client ctor as name!<br/>";
+      $this->name = ( string ) $name;
+      $this->setJSON(( string ) json_encode($this));
     }
   
     /**
-     * @Id @Column(type="integer")
-     * @GeneratedValue
+     * @ORM\Id @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
      */
     private $clientId;
 
-    /** @Column(type="string") */
+    /** @ORM\Column(type="string") */
     private $name;
 
     /**
      * @return int
      */
-    public function getClientId() : int
+    public function getClientId()
     {
         return $this->clientId;
     }
@@ -52,7 +61,7 @@ class Client extends \Model
     /**
      * @return string
      */
-    public function getName() : string
+    public function getName()
     {
         return $this->name;
     }

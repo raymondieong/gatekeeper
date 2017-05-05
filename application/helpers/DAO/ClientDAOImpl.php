@@ -11,11 +11,15 @@
 
 namespace application\helpers\DAO;
 
+require_once("DAOImpl.php");
+require_once("ClientDAO.php");
 require_once(APPPATH."models/Client.php");
+
 use models\Client;
+use DAOImpl;
 use Symfony\Component\Config\Definition\Exception\Exception;
 
-class ClientDAOImpl extends \DAOImpl implements ClientDAO
+class ClientDAOImpl extends DAOImpl implements ClientDAO
 {
     /**
      * ClientDAOImpl constructor.
@@ -50,10 +54,10 @@ class ClientDAOImpl extends \DAOImpl implements ClientDAO
       $client = null;  
 			try 
 			{
-					$client = $this->em->getRepository('client')->find($id);	
+					$client = $this->em->find('models\Client', $id);	
 			}
 			catch (Exception $e)
-            {
+      {
                 // TODO : Handle exceptions
 			}
 			return $client;
@@ -68,7 +72,7 @@ class ClientDAOImpl extends \DAOImpl implements ClientDAO
     }
     
 
-    public function getByDateCreated(\DateTime $date) : array
+    public function getByDateCreated(\DateTime $date)
     {
         try
         {
@@ -81,7 +85,7 @@ class ClientDAOImpl extends \DAOImpl implements ClientDAO
         return null;
     }
 
-	public function getByDateModified(\DateTime $date) : array
+	public function getByDateModified(\DateTime $date)
     {
         try
         {
@@ -94,7 +98,7 @@ class ClientDAOImpl extends \DAOImpl implements ClientDAO
         return null;
     }
   
-	public function getByJSON(string $json) : \Model
+	public function getByJSON(string $json)
     {
     try 
 		{

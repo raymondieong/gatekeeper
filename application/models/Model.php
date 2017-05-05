@@ -12,27 +12,64 @@
  * Every model inherits the model class.
  */
 
-/** @MappedSuperclass */
-abstract class Model
+// TODO : Find non-casting solution (setJSON param should enforce string)
+
+require_once APPPATH.'../system/core/Model.php';
+use Doctrine\ORM\Tools\SchemaTool as SchemaTool;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Tools\ToolsException as ToolsException;
+
+/** @ORM\MappedSuperclass */
+abstract class Model extends CI_Model
 {
     /*
      * For every model class field JSON is to
      * store it's appropriate data in form of
      * stringify JSON object.
      */
-    /** @Column(type="string") */
+    /** @ORM\Column(type="string") */
     private $JSON;
   
-    /** @Column(type="date")  */
+    /** @ORM\Column(type="date")  */
     private $dateCreated;
 
-    /** @Column(type="date")  */
+    /** @ORM\Column(type="date")  */
     private $dateModified;
+  
+  
+    /**
+    * Constructor
+     * @param string $name
+    */
+    public function __construct()
+    {
+      $this->setDateCreated(new DateTime());
+      $this->setDateModified(new DateTime());
+      $this->setJSON(json_encode($this));
+      
+      // TODO : TEST
+      //echo "Model ctor running (pre create)<br/>";
+      // TODO : Create table (IF DOESN'T EXIST) using schema tools HERE!
+      try {
+        $tool = new SchemaTool($this->doctrine->em);
+        $class = array(
+          $this->doctrine->em->getClassMetadata(get_class($this))
+        );
+        $tool->createSchema($class);
+        //echo get_class($this)." Table Now Exists <br/>";
+      }
+      catch (Exception $e) {
+        //echo $e->getMessage()."<br/";
+      }
+      // TODO : TEST
+      //echo "<br/>Model Ctor finished<br/>";
+    }
+  
   
     /**
      * @return string
      */
-    protected function getJSON() : string
+    protected function getJSON()
     {
         return $this->JSON;
     }
@@ -40,14 +77,14 @@ abstract class Model
     /**
      * @param string $JSON
      */
-    protected function setJSON($JSON : string)
+    protected function setJSON($JSON)
     {
         $this->JSON = $JSON;
     }
     /**
      * @return DateTime
      */
-    protected function getDateCreated() : DateTime
+    protected function getDateCreated()
     {
         return $this->dateCreated;
     }
@@ -55,7 +92,7 @@ abstract class Model
     /**
      * @param DateTime $dateCreated
      */
-    protected function setDateCreated($dateCreated : DateTime)
+    protected function setDateCreated(DateTime $dateCreated)
     {
         $this->dateCreated = $dateCreated;
     }
@@ -63,7 +100,7 @@ abstract class Model
     /**
      * @return DateTime
      */
-    protected function getDateModified() : DateTime
+    protected function getDateModified()
     {
         return $this->dateModified;
     }
@@ -71,7 +108,7 @@ abstract class Model
     /**
      * @param DateTime $dateModified
      */
-    protected function setDateModified($dateModified)
+    protected function setDateModified(DateTime $dateModified)
     {
         $this->dateModified = $dateModified;
     }
