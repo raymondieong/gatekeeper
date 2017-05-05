@@ -28,6 +28,8 @@ class HomeController extends CI_Controller
 
     function __construct ()
     {
+        // TODO : TEST
+
         parent::__construct();
         $this->load->helper('url');
     }

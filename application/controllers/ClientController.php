@@ -1,30 +1,45 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 /**
  * Created by PhpStorm.
  * User: Mohammad Yazdani
- * Date: 3/3/2017
- * Time: 11:29 PM
+ * Date: 5/4/2017
+ * Time: 11:31 PM
  */
 
-namespace RESTControllers;
+require_once '../helpers/DAO] ';
+require_once 'helpers\DAO\ClientDAOImpl';
 
+use application\helpers\DAO\ClientDAOImpl;
+use models\Client;
 
-class ClientController extends \CI_Controller
+class ClientController extends CI_Controller
 {
-    public function __construct()
+    private $dao;
+
+    function __construct ()
     {
+        // TODO : TEST
         parent::__construct();
+        $this->load->helper('url');
+        $this->dao = new ClientDAOImpl();
     }
 
-    public function GetClient()
+    public function index ()
     {
-        // TODO : TEST
-        echo "TEST GET CLIENT";
+        echo "IN INDEX FUNCTION";
     }
 
-    public function NewClient()
+    public function GetClient(int $id) : Client
     {
-        // TODO : TEST
-        echo "NEW CLIENT";
+        return $this->dao->get($id);
+    }
+
+    public function NewClient(string $name) : bool
+    {
+        $client = new Client($name);
+        if($this->dao->save($client)) return true;
+        else return false;
     }
 }
