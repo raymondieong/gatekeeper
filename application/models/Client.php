@@ -27,10 +27,11 @@ class Client extends \Model
     */
     public function __construct($name)
     {
-      parent::__construct();
-      //echo $name." passed to client ctor as name!<br/>";
-      $this->name = ( string ) $name;
-      $this->setJSON(( string ) json_encode($this));
+        parent::__construct();
+        //echo $name." passed to client ctor as name!<br/>";
+        $this->name = ( string ) $name;
+      
+        $this->setJSON(json_encode($this->jsonSerialize()));
     }
   
     /**
@@ -72,5 +73,20 @@ class Client extends \Model
     public function setName(string $name)
     {
         $this->name = $name;
+    }
+  
+    public function jsonSerialize()
+    {
+        return [
+          'dateCreated' => $this->getDateCreated()->format('Y-m-d H:i:s'),
+          'dateModified' => $this->getDateModified()->format('Y-m-d H:i:s'),
+          'clientId' => $this->clientId,
+          'name' => $this->name
+        ];
+    }
+  
+    public function updateJSON()
+    {
+        $this->setJSON(json_encode($this->jsonSerialize()));
     }
 }

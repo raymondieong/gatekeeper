@@ -20,7 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Tools\ToolsException as ToolsException;
 
 /** @ORM\MappedSuperclass */
-abstract class Model extends CI_Model
+abstract class Model extends CI_Model implements JsonSerializable
 {
     /*
      * For every model class field JSON is to
@@ -45,7 +45,6 @@ abstract class Model extends CI_Model
     {
       $this->setDateCreated(new DateTime());
       $this->setDateModified(new DateTime());
-      $this->setJSON(json_encode($this));
       
       // TODO : TEST
       //echo "Model ctor running (pre create)<br/>";
@@ -69,18 +68,19 @@ abstract class Model extends CI_Model
     /**
      * @return string
      */
-    protected function getJSON()
+    public function getJSON()
     {
         return $this->JSON;
     }
 
     /**
-     * @param string $JSON
+     * 
      */
-    protected function setJSON($JSON)
+    protected function setJSON($json)
     {
-        $this->JSON = $JSON;
+        $this->JSON = $json;
     }
+  
     /**
      * @return DateTime
      */

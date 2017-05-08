@@ -21,6 +21,9 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 
 class ClientDAOImpl extends DAOImpl implements ClientDAO
 {
+	
+		public static $lastInsertId;
+	
     /**
      * ClientDAOImpl constructor.
      */
@@ -28,13 +31,20 @@ class ClientDAOImpl extends DAOImpl implements ClientDAO
     {
         parent::__construct();
     }
-
+	
     public function save(Client $client)
     {
         // The object to be saved is the parameter $client of type "model/Client"
         try 
         {
             // TODO : DOC
+            $this->em->persist($client);
+            // TODO : DOC
+            $this->em->flush();
+						
+						$client->updateJSON();
+					
+						// TODO : DOC
             $this->em->persist($client);
             // TODO : DOC
             $this->em->flush();
@@ -50,25 +60,25 @@ class ClientDAOImpl extends DAOImpl implements ClientDAO
 
     public function get($id)
     {
-      // TODO: Implement get() method.
-      $client = null;  
-			try 
-			{
-					$client = $this->em->find('models\Client', $id);	
-			}
-			catch (Exception $e)
-      {
-                // TODO : Handle exceptions
-			}
-			return $client;
+      	// TODO: Implement get() method.
+      	$client = null;  
+				try 
+				{
+						$client = $this->em->find('models\Client', $id);	
+				}
+				catch (Exception $e)
+      	{
+       			// TODO : Handle exceptions
+				}
+				return $client;
     }
 
     public function delete(Client $client)
     {
-      // TODO : Implement delete() method.
-			// TODO : Handle FAILURE
-			$this->em->remove($client);
-			$this->em->flush();
+      	// TODO : Implement delete() method.
+				// TODO : Handle FAILURE
+				$this->em->remove($client);
+				$this->em->flush();
     }
     
 
@@ -85,7 +95,7 @@ class ClientDAOImpl extends DAOImpl implements ClientDAO
         return null;
     }
 
-	public function getByDateModified(\DateTime $date)
+		public function getByDateModified(\DateTime $date)
     {
         try
         {
@@ -98,16 +108,16 @@ class ClientDAOImpl extends DAOImpl implements ClientDAO
         return null;
     }
   
-	public function getByJSON(string $json)
+		public function getByJSON(string $json)
     {
-    try 
-		{
+    		try 
+				{
 
-		}
-		catch (Exception $e)
-		{
-			// TODO : Handle exceptions
-		}
-		return null;
+				}	
+				catch (Exception $e)
+				{
+						// TODO : Handle exceptions
+				}
+				return null;
     }
 }
