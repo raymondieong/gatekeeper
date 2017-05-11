@@ -13,6 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/application/models" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Architecture" />
       <excludeFolder url="file://$MODULE_DIR$/Codeigniter" />
+      <excludeFolder url="file://$MODULE_DIR$/assets/chriskacerguis/codeigniter-restserver" />
       <excludeFolder url="file://$MODULE_DIR$/assets/components/jquery" />
       <excludeFolder url="file://$MODULE_DIR$/assets/composer" />
       <excludeFolder url="file://$MODULE_DIR$/assets/mikey179/vfsStream" />
@@ -46,6 +47,7 @@
     <orderEntry type="module-library">
       <library name="PHP" type="php">
         <CLASSES>
+          <root url="file://$MODULE_DIR$/assets/chriskacerguis/codeigniter-restserver" />
           <root url="file://$MODULE_DIR$/assets/components/jquery" />
           <root url="file://$MODULE_DIR$/assets/composer" />
           <root url="file://$MODULE_DIR$/assets/mikey179/vfsStream" />
@@ -63,6 +65,7 @@
           <root url="file://$MODULE_DIR$/assets/twbs/bootstrap" />
         </CLASSES>
         <SOURCES>
+          <root url="file://$MODULE_DIR$/assets/chriskacerguis/codeigniter-restserver" />
           <root url="file://$MODULE_DIR$/assets/components/jquery" />
           <root url="file://$MODULE_DIR$/assets/composer" />
           <root url="file://$MODULE_DIR$/assets/mikey179/vfsStream" />

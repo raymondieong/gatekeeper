@@ -10,3 +10,11 @@ __Doctrine__: For ORM and database query
 
 ## Design of GateKeeper
 To see the software architecture files please go to the Architecture folder and download `design.archimate`
+
+### Setup Guide:
+1. Open command line and move to the location were you want to have GateKeeper present and clone it.
+
+2. Open MySQL on command line with ``-u root`` option (to be root!) and run the following:
+``CREATE DATABASE gatekeeper;``
+``USE mysql;``
+``GRANT ALL PRIVILEGES ON *gatekeeper* TO 'gatekeeper'@'localhost' IDENTIFIED BY 'gatekeeper';``
