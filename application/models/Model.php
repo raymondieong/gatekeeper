@@ -112,4 +112,8 @@ abstract class Model extends CI_Model implements JsonSerializable
     {
         $this->dateModified = $dateModified;
     }
+
+    abstract public function jsonSerialize();
+
+    abstract public function updateJSON();
 }
