@@ -21,67 +21,72 @@ require_once 'Model.php';
  */
 class Client extends \Model
 {
+
+    /**
+     * @ORM\Id @ORM\Column(type="string")
+     * @ORM\GeneratedValue
+     */
+    private $username;
+
+    /** @ORM\Column(type="string") */
+    private $email;
+
     /**
     * Constructor
-     * @param string $name
+     * @param string $username
+     * @param string $email
     */
-    public function __construct($name)
+    public function __construct(string $username, string $email)
     {
         parent::__construct();
         //echo $name." passed to client ctor as name!<br/>";
-        $this->name = ( string ) $name;
+        $this->username = $username;
+        $this->email = $email;
       
         $this->setJSON(json_encode($this->jsonSerialize()));
-    }
-  
-    /**
-     * @ORM\Id @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
-     */
-    private $clientId;
-
-    /** @ORM\Column(type="string") */
-    private $name;
-
-    /**
-     * @return int
-     */
-    public function getClientId()
-    {
-        return $this->clientId;
-    }
-
-    /**
-     * @param int $clientId
-     */
-    public function setClientId(int $clientId)
-    {
-        $this->clientId = $clientId;
     }
 
     /**
      * @return string
      */
-    public function getName()
+    public function getUsername() : string
     {
-        return $this->name;
+        return $this->username;
     }
 
     /**
-     * @param string $name
+     * @param string $username
      */
-    public function setName(string $name)
+    public function setUsername(string $username)
     {
-        $this->name = $name;
+        $this->username = $username;
     }
+
+    /**
+     * @return string
+     */
+    public function getEmail() : string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail(string $email)
+    {
+        $this->email = $email;
+    }
+
+
   
     public function jsonSerialize()
     {
         return [
           'dateCreated' => $this->getDateCreated()->format('Y-m-d H:i:s'),
           'dateModified' => $this->getDateModified()->format('Y-m-d H:i:s'),
-          'clientId' => $this->clientId,
-          'name' => $this->name
+          'username' => $this->username,
+          'email' => $this->email
         ];
     }
   
