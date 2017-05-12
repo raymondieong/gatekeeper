@@ -31,6 +31,9 @@ class Client extends \Model
     /** @ORM\Column(type="string") */
     private $email;
 
+    /** @ORM\Column(type="object") */
+    public $auth;
+
     /**
     * Constructor
      * @param string $username
