@@ -92,9 +92,4 @@ class Client extends \Model
           'email' => $this->email
         ];
     }
-  
-    public function updateJSON()
-    {
-        $this->setJSON(json_encode($this->jsonSerialize()));
-    }
 }

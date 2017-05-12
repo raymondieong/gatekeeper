@@ -121,5 +121,8 @@ abstract class Model extends CI_Model implements JsonSerializable
     /**
      * @return void
      */
-    abstract public function updateJSON();
+    public function updateJSON()
+    {
+        $this->setJSON(json_encode($this->jsonSerialize()));
+    }
 }
