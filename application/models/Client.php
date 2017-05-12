@@ -16,15 +16,20 @@ require_once 'Model.php';
 
 /**
  * @ORM\Entity(repositoryClass="Client")
- * @ORM\Table(name="client")
+ * @ORM\Table(name="client",uniqueConstraints={@UniqueConstraint(name="search_idx", columns={"username", "email"})})
  * 
  */
 class Client extends \Model
 {
 
     /**
-     * @ORM\Id @ORM\Column(type="string")
-     * @ORM\GeneratedValue
+     * @Id @Column(type="integer")
+     * @GeneratedValue
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string")
      */
     private $username;
 
@@ -83,9 +88,10 @@ class Client extends \Model
 
 
   
-    public function jsonSerialize()
+    public function jsonSerialize() : array
     {
         return [
+            'id' => $this->id,
           'dateCreated' => $this->getDateCreated()->format('Y-m-d H:i:s'),
           'dateModified' => $this->getDateModified()->format('Y-m-d H:i:s'),
           'username' => $this->username,
