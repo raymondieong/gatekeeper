@@ -34,7 +34,8 @@ class User extends \Model
     public function __construct()
     {
         parent::__construct();
-        $this->data = null;
+        // TODO : Gen random string
+        $this->data = new Data("random string");
     }
 
 

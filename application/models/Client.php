@@ -37,7 +37,10 @@ class Client extends \Model
     private $email;
 
     /** @ORM\Column(type="object") */
-    public $auth;
+    public $auth; // TODO : Provide operation method
+
+    /** @ORM\Column(type="object") */
+    public $user; // TODO : provide operation method
 
     /**
     * Constructor

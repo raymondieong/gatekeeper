@@ -23,12 +23,21 @@ class Data extends \Model
      * Constructor
      * @param string $data
      */
-    public function __construct($data)
+    public function __construct(string $data)
     {
         parent::__construct();
         $this->data = $data;
     }
 
+    /**
+     * @return array
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+          'data' => $this->data
+        ];
+    }
 
 
 }
