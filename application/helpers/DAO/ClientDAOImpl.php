@@ -21,8 +21,8 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 
 class ClientDAOImpl extends DAOImpl implements ClientDAO
 {
-	
-		public static $lastInsertId;
+
+    public static $lastInsertId;
 	
     /**
      * ClientDAOImpl constructor.

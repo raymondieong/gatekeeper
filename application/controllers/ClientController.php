@@ -47,7 +47,6 @@ class ClientController extends REST_Controller
         echo "<br/><br/>";
         echo $client->getJSON();
 
-        // TODO : RETURN PROPER STATUS CODE IF NOT FOUND
         if ($client == NULL) return -1;
         else return $client;
     }

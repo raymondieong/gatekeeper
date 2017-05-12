@@ -13,6 +13,8 @@ use models\Client;
 
 interface ClientDAO extends \DAO
 {
+    public function save(Client $client);
+
     public function get($id);
 
     public function delete(Client $client);
