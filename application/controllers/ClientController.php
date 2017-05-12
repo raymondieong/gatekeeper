@@ -12,6 +12,9 @@ use application\helpers\DAO\ClientDAOImpl;
 use models\Client;
 use Restserver\Libraries\REST_Controller;
 
+
+// TODO : Handle existing stuff like existing username and email.
+
 class ClientController extends REST_Controller
 {
     private $dao;
@@ -28,9 +31,9 @@ class ClientController extends REST_Controller
         echo "Inside index().";
     }
 
-    public function index_post($name)
+    public function index_post($username, $email)
     {
-        return $this->post($name);
+        return $this->post($username, $email);
     }
 	
 	public function index_get($id) 
@@ -51,9 +54,9 @@ class ClientController extends REST_Controller
         else return $client;
     }
 	
-    public function post($key=NULL, $xss_clean=NULL)
+    public function post($key1 = null, $key2=null, $xss_clean=NULL)
     {
-        $client = new Client(( string ) $key);
+        $client = new Client(( string ) $key1, ( string ) $key2);
         if($this->dao->save($client)) return true;
         else return false;
     }

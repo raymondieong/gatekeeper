@@ -16,15 +16,15 @@ require_once 'Model.php';
 
 /**
  * @ORM\Entity(repositoryClass="Client")
- * @ORM\Table(name="client",uniqueConstraints={@UniqueConstraint(name="search_idx", columns={"username", "email"})})
+ * @ORM\Table(name="client",uniqueConstraints={@ORM\UniqueConstraint(name="search_idx", columns={"username"})}, uniqueConstraints={@ORM\UniqueConstraint(name="search_idx", columns={"email"})})
  * 
  */
 class Client extends \Model
 {
 
     /**
-     * @Id @Column(type="integer")
-     * @GeneratedValue
+     * @ORM\Id @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
      */
     private $id;
 
