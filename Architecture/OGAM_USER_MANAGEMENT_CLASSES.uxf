@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>296</x>
-      <y>136</y>
+      <x>280</x>
+      <y>144</y>
       <w>168</w>
       <h>176</h>
     </coordinates>
@@ -29,8 +29,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>296</x>
-      <y>368</y>
+      <x>280</x>
+      <y>376</y>
       <w>168</w>
       <h>168</h>
     </coordinates>
@@ -53,8 +53,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>368</x>
-      <y>304</y>
+      <x>352</x>
+      <y>312</y>
       <w>24</w>
       <h>80</h>
     </coordinates>
@@ -64,8 +64,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>520</x>
-      <y>408</y>
+      <x>504</x>
+      <y>416</y>
       <w>128</w>
       <h>64</h>
     </coordinates>
@@ -79,8 +79,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>456</x>
-      <y>440</y>
+      <x>440</x>
+      <y>448</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -90,8 +90,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>576</y>
+      <x>384</x>
+      <y>584</y>
       <w>232</w>
       <h>72</h>
     </coordinates>
@@ -106,8 +106,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>528</y>
+      <x>344</x>
+      <y>536</y>
       <w>56</w>
       <h>120</h>
     </coordinates>
@@ -118,14 +118,13 @@ bg=black</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
-      <y>272</y>
+      <x>24</x>
+      <y>280</y>
       <w>168</w>
-      <h>80</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>User
 --
-- auth : Auth
 - data : Data
 --
 + getData () : Data
@@ -135,22 +134,22 @@ bg=black</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>112</x>
-      <y>152</y>
+      <x>96</x>
+      <y>160</y>
       <w>144</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>Data
 --
-data : String
+ + data : String
 *STRING IS TEMPORARY*</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>248</x>
-      <y>168</y>
+      <x>232</x>
+      <y>176</y>
       <w>64</w>
       <h>24</h>
     </coordinates>
@@ -160,8 +159,8 @@ data : String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>456</x>
-      <y>248</y>
+      <x>440</x>
+      <y>256</y>
       <w>144</w>
       <h>176</h>
     </coordinates>
@@ -171,8 +170,8 @@ data : String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>200</x>
-      <y>288</y>
+      <x>184</x>
+      <y>296</y>
       <w>112</w>
       <h>24</h>
     </coordinates>
@@ -182,8 +181,8 @@ data : String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
-      <y>192</y>
+      <x>152</x>
+      <y>200</y>
       <w>24</w>
       <h>96</h>
     </coordinates>
@@ -194,12 +193,12 @@ bg=black</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
+      <x>144</x>
       <y>344</y>
       <w>152</w>
-      <h>96</h>
+      <h>104</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>170.0;100.0;10.0;100.0;10.0;10.0</additional_attributes>
+    <additional_attributes>170.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
