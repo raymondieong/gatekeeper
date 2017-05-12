@@ -92,10 +92,10 @@ class Client extends \Model
     {
         return [
             'id' => $this->id,
-          'dateCreated' => $this->getDateCreated()->format('Y-m-d H:i:s'),
-          'dateModified' => $this->getDateModified()->format('Y-m-d H:i:s'),
-          'username' => $this->username,
-          'email' => $this->email
+            'dateCreated' => $this->getDateCreated()->format('Y-m-d H:i:s'),
+            'dateModified' => $this->getDateModified()->format('Y-m-d H:i:s'),
+            'username' => $this->username,
+            'email' => $this->email
         ];
     }
 }
