@@ -10,54 +10,118 @@ require_once APPPATH.'helpers/DAO/ClientDAOImpl.php';
 require_once APPPATH.'libraries/REST_Controller.php';
 use application\helpers\DAO\ClientDAOImpl;
 use models\Client;
-use Restserver\Libraries\REST_Controller;
+use models\Device;
+use \Crypto\DeviceUID;
 
 
 // TODO : Handle existing stuff like existing username and email.
+// TODO : DOCUMENTATION
 
-class ClientController extends REST_Controller
+class ClientController extends Controller
 {
-    private $dao;
+    private $deviceDAO;
 
     function __construct ()
     {
         parent::__construct();
         $this->load->helper('url');
         $this->dao = new ClientDAOImpl();
-    }
-
-    public function index ()
-    {
-        echo "Inside index().";
-    }
-
-    public function index_post($username, $email)
-    {
-        return $this->post($username, $email);
+        // TODO : CHANGE
+        $this->deviceDAO = new \DAO\DeviceDAOImpl();
     }
 	
-	public function index_get($id) 
+    public function get ($key=NULL, $xss_clean=NULL): Client
     {
-        return $this->get($id);
-    }
-	
-    public function get($key=NULL, $xss_clean=NULL)
-    {
-        $id = ( int ) $key;
+        $id = $key;
         $client = $this->dao->get($id);
-
+        // TODO : TEST
         if ($client == NULL) return NULL;
         echo "<br/><br/>";
         echo $client->getJSON();
 
-        if ($client == NULL) return -1;
+        if ($client == NULL) return null;
         else return $client;
     }
 	
-    public function post($key1 = null, $key2=null, $xss_clean=NULL)
+    public function post ($key = null, $xss_clean=NULL)
     {
-        $client = new Client(( string ) $key1, ( string ) $key2);
-        if($this->dao->save($client)) return true;
+        $json = json_decode($key);
+
+        // TODO : REQUEST USER
+        $userCtrl = new UserController();
+        $userId = $userCtrl->post($json->data);
+
+        $client = null;
+        if ($userId) $client = new Client(
+            ( string ) $json->username,
+            ( string ) $json->email,
+            $userId,
+            $json->authId
+            );
         else return false;
+
+        if($this->dao->save($client))
+        {
+            $device = null;
+            if ($json->uid != null)
+            {
+                $device = $this->deviceDAO->get($json->uid);
+            }
+            if ($device == null)
+            {
+                $uidGen = new DeviceUID();
+                $device = new Device($uidGen->generateDeviceUID(), $client->getId());
+                if (!$this->deviceDAO->save($device)) return false;
+            }
+            if($this->dao->save($client)) return true;
+            else return false;
+        }
+        else return false;
+    }
+
+    public function delete($key = NULL, $xss_clean = NULL)
+    {
+        $json = json_decode($key);
+        $clientId = null;
+        if ($json->username) $clientId = $json->username;
+        elseif ($json->email) $clientId = $json->email;
+        else return false;
+        // TODO : DELETE DEVICES
+        // TODO : DEBUG
+        // TODO : HANDLE EXCEPTIONS
+        $client = $this->dao->get($clientId);
+        $device[] = $this->deviceDAO->getByClient($client->getJSON());
+        foreach ($device as $dev)
+        {
+            $this->deviceDAO->delete($dev);
+        }
+        if($this->dao->delete($client)) return true;
+        else return false;
+    }
+
+    public function put ($key = null, $xss_clean=NULL)
+    {
+        // TODO : WARNING! -> TEMPORARY
+        $this->post($key);
+    }
+
+    public function REST_GET($id)
+    {
+        $this->get($id);
+    }
+
+    public function REST_POST(string $json)
+    {
+        $this->post($json);
+    }
+
+    public function REST_PUT(string $json)
+    {
+        $this->put($json);
+    }
+
+    public function REST_DELETE(string $json)
+    {
+        $this->delete($json);
     }
 }

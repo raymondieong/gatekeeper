@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
-      <y>0</y>
+      <x>1080</x>
+      <y>112</y>
       <w>168</w>
       <h>176</h>
     </coordinates>
@@ -23,64 +23,71 @@
 + getDateModified () : Date
 + setDateModified (date : Date)
 + getJSON () : String
-+ setJSON (json : String)</panel_attributes>
++ setJSON (json : String)
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>336</x>
-      <y>232</y>
+      <x>1080</x>
+      <y>328</y>
       <w>168</w>
-      <h>168</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>Client
 --
 - username : String
 - email : String
-- user : User Pointer
+- userId : Integer
+- authId : Integer
 --
-+ auth : Auth
---
++ getId () : Integer
 + getUsername () : String
 + setUsername (username : String)
 + getEmail () : String
 + setEmail (email : String)
-+ setUser (user : User Pointer)
-+ getUser () : User Pointer</panel_attributes>
++ setUser (user : Integer)
++ getUser () : Integer
++ getAuthId () : Integer
++ setAuthId (authId : Integer)
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>168</y>
+      <x>1152</x>
+      <y>280</y>
       <w>24</w>
-      <h>80</h>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>560</x>
-      <y>272</y>
-      <w>128</w>
-      <h>64</h>
+      <x>1304</x>
+      <y>384</y>
+      <w>224</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>Device
 --
-+ uid : Integer
-+ client : Client Pointer
-+ savedPass () : Boolean</panel_attributes>
+- uid : Integer
+- clientId : Integer
+--
++ getPassIsSaved() : Boolean
++ setPassIsSaved(isPassSaved : Boolean)
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
-      <y>304</y>
+      <x>1240</x>
+      <y>416</y>
       <w>80</w>
       <h>24</h>
     </coordinates>
@@ -90,8 +97,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>440</x>
-      <y>440</y>
+      <x>1184</x>
+      <y>552</y>
       <w>232</w>
       <h>72</h>
     </coordinates>
@@ -100,26 +107,27 @@
 - salt : String
 - auth_string : String
 --
-+ authenticate (password : String) : Boolean</panel_attributes>
++ authenticate (password : String) : Boolean
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
-      <y>392</y>
+      <x>1144</x>
+      <y>520</y>
       <w>56</w>
-      <h>96</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bg=black</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0;50.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0;50.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>80</x>
-      <y>136</y>
+      <x>824</x>
+      <y>248</y>
       <w>168</w>
       <h>72</h>
     </coordinates>
@@ -128,28 +136,30 @@ bg=black</panel_attributes>
 - data : Data
 --
 + getData () : Data
-+ setData (data : Data)</panel_attributes>
++ setData (data : Data)
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>152</x>
-      <y>16</y>
+      <x>896</x>
+      <y>128</y>
       <w>144</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>Data
 --
  + data : String
-*STRING IS TEMPORARY*</panel_attributes>
+*STRING IS TEMPORARY*
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>288</x>
-      <y>32</y>
+      <x>1032</x>
+      <y>144</y>
       <w>64</w>
       <h>24</h>
     </coordinates>
@@ -159,8 +169,8 @@ bg=black</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>496</x>
-      <y>112</y>
+      <x>1240</x>
+      <y>224</y>
       <w>144</w>
       <h>176</h>
     </coordinates>
@@ -170,8 +180,8 @@ bg=black</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>152</y>
+      <x>984</x>
+      <y>264</y>
       <w>112</w>
       <h>24</h>
     </coordinates>
@@ -181,8 +191,8 @@ bg=black</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>208</x>
-      <y>56</y>
+      <x>952</x>
+      <y>168</y>
       <w>24</w>
       <h>96</h>
     </coordinates>
@@ -193,8 +203,8 @@ bg=black</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>200</x>
-      <y>200</y>
+      <x>944</x>
+      <y>312</y>
       <w>152</w>
       <h>104</h>
     </coordinates>
@@ -204,36 +214,42 @@ bg=black</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>240</x>
-      <y>1168</y>
-      <w>136</w>
-      <h>40</h>
+      <x>248</x>
+      <y>544</y>
+      <w>168</w>
+      <h>96</h>
     </coordinates>
-    <panel_attributes>/RESTController/
+    <panel_attributes>/Controller/
 --
-*REST API library class*
-</panel_attributes>
+# dao : DAO
+--
+/+ REST_GET (id : mixed)/
+/+ REST_POST (json : String)/
+/+ REST_PUT (json : String)/
+/+ REST_DELETE (json : String)/
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>400</x>
-      <y>1432</y>
+      <x>384</x>
+      <y>720</y>
       <w>176</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>ClientController
 --
 - clientDAO : ClientDAOImpl
-- deviceDAO : DeviceDAOImpl</panel_attributes>
+- deviceDAO : DeviceDAOImpl
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>32</x>
-      <y>576</y>
+      <x>40</x>
+      <y>0</y>
       <w>224</w>
       <h>80</h>
     </coordinates>
@@ -242,39 +258,39 @@ bg=black</panel_attributes>
 --
 + getByDateCreated (date : Date) : Object
 + getByDateModified (date : Date) : Object
-+ getByJSON (json : String) : Object</panel_attributes>
++ getByJSON (json : String) : Object
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>464</x>
-      <y>728</y>
+      <x>376</x>
+      <y>152</y>
       <w>144</w>
-      <h>40</h>
+      <h>24</h>
     </coordinates>
     <panel_attributes>ClientDAOImpl
---
-_+ lastInsertedId : Integer_
-</panel_attributes>
+
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>248</x>
-      <y>608</y>
-      <w>312</w>
+      <x>256</x>
+      <y>32</y>
+      <w>216</w>
       <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;370.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;250.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>224</x>
-      <y>704</y>
+      <x>184</x>
+      <y>128</y>
       <w>144</w>
       <h>80</h>
     </coordinates>
@@ -283,49 +299,51 @@ _+ lastInsertedId : Integer_
 --
 + save (client : Client)
 + get (id : Integer) : Client
-+ delete (client : Client)</panel_attributes>
++ delete (client : Client)
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>136</x>
-      <y>648</y>
-      <w>104</w>
+      <x>144</x>
+      <y>72</y>
+      <w>56</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;130.0;110.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0;50.0;130.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>544</x>
-      <y>600</y>
+      <x>456</x>
+      <y>24</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>DAOImpl
 --
-# em : EntityManager (Doctrine class)</panel_attributes>
+# em : EntityManager (Doctrine class)
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>744</y>
-      <w>120</w>
+      <x>320</x>
+      <y>160</y>
+      <w>72</w>
       <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>632</y>
+      <x>512</x>
+      <y>56</y>
       <w>64</w>
       <h>120</h>
     </coordinates>
@@ -335,22 +353,21 @@ _+ lastInsertedId : Integer_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>472</x>
-      <y>904</y>
+      <x>384</x>
+      <y>336</y>
       <w>144</w>
-      <h>40</h>
+      <h>24</h>
     </coordinates>
     <panel_attributes>UserDAOImpl
---
-_+ lastInsertedId : Integer_
-</panel_attributes>
+
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>232</x>
-      <y>888</y>
+      <x>192</x>
+      <y>312</y>
       <w>144</w>
       <h>80</h>
     </coordinates>
@@ -359,25 +376,26 @@ _+ lastInsertedId : Integer_
 --
 + save (user : User)
 + get (id : Integer) : User
-+ delete (user : User)</panel_attributes>
++ delete (user : User)
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>368</x>
-      <y>920</y>
-      <w>120</w>
+      <x>328</x>
+      <y>344</y>
+      <w>72</w>
       <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>632</y>
+      <x>512</x>
+      <y>56</y>
       <w>64</w>
       <h>208</h>
     </coordinates>
@@ -387,34 +405,22 @@ _+ lastInsertedId : Integer_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>408</x>
-      <y>1272</y>
-      <w>128</w>
-      <h>40</h>
-    </coordinates>
-    <panel_attributes>AuthController
---
-- dao : AuthDAOImpl</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>408</x>
-      <y>1344</y>
+      <x>392</x>
+      <y>648</y>
       <w>128</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>UserController
 --
-- dao : UserDAOImpl</panel_attributes>
+- dao : UserDAOImpl
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>464</x>
-      <y>1016</y>
+      <x>376</x>
+      <y>440</y>
       <w>144</w>
       <h>24</h>
     </coordinates>
@@ -425,19 +431,19 @@ _+ lastInsertedId : Integer_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>368</x>
-      <y>1024</y>
-      <w>112</w>
+      <x>328</x>
+      <y>448</y>
+      <w>64</w>
       <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>232</x>
-      <y>992</y>
+      <x>192</x>
+      <y>416</y>
       <w>144</w>
       <h>80</h>
     </coordinates>
@@ -446,37 +452,39 @@ _+ lastInsertedId : Integer_
 --
 + save (auth : Auth)
 + get (auth_string : String) : Auth
-+ delete (auth : Auth)</panel_attributes>
++ delete (auth : Auth)
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>464</x>
-      <y>816</y>
+      <x>376</x>
+      <y>240</y>
       <w>144</w>
       <h>24</h>
     </coordinates>
     <panel_attributes>DeviceDAOImpl
-</panel_attributes>
+
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>824</y>
-      <w>120</w>
+      <x>320</x>
+      <y>248</y>
+      <w>72</w>
       <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;70.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>224</x>
-      <y>792</y>
+      <x>184</x>
+      <y>216</y>
       <w>144</w>
       <h>80</h>
     </coordinates>
@@ -485,47 +493,37 @@ _+ lastInsertedId : Integer_
 --
 + save (devide : Device)
 + get (uid : Integer) : Device
-+ delete (device : Device)</panel_attributes>
++ delete (device : Device)
+bg=green</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>296</x>
-      <y>1200</y>
-      <w>128</w>
-      <h>112</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0;140.0;120.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>296</x>
-      <y>1200</y>
-      <w>128</w>
-      <h>184</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;210.0;140.0;210.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>296</x>
-      <y>1200</y>
-      <w>120</w>
-      <h>272</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;320.0;130.0;320.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>608</x>
+      <x>320</x>
       <y>632</y>
+      <w>88</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;90.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>632</y>
+      <w>80</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0;80.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>56</y>
       <w>56</w>
       <h>304</h>
     </coordinates>
@@ -535,8 +533,8 @@ _+ lastInsertedId : Integer_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>600</x>
-      <y>632</y>
+      <x>512</x>
+      <y>56</y>
       <w>64</w>
       <h>408</h>
     </coordinates>
@@ -546,82 +544,170 @@ _+ lastInsertedId : Integer_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>136</x>
-      <y>648</y>
-      <w>104</w>
+      <x>144</x>
+      <y>72</y>
+      <w>56</w>
       <h>200</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;230.0;110.0;230.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0;50.0;230.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>136</x>
-      <y>648</y>
-      <w>112</w>
+      <x>144</x>
+      <y>72</y>
+      <w>64</w>
       <h>296</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;350.0;120.0;350.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;350.0;60.0;350.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>136</x>
-      <y>648</y>
-      <w>112</w>
+      <x>144</x>
+      <y>72</y>
+      <w>64</w>
       <h>408</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;490.0;120.0;490.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;490.0;60.0;490.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
-      <y>1032</y>
-      <w>72</w>
-      <h>272</h>
+      <x>512</x>
+      <y>352</y>
+      <w>96</w>
+      <h>328</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bg=black</panel_attributes>
-    <additional_attributes>10.0;320.0;70.0;320.0;70.0;10.0</additional_attributes>
+    <additional_attributes>10.0;390.0;100.0;390.0;100.0;50.0;20.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>528</x>
-      <y>920</y>
-      <w>168</w>
-      <h>456</h>
+      <x>512</x>
+      <y>256</y>
+      <w>112</w>
+      <h>496</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bg=black</panel_attributes>
-    <additional_attributes>10.0;550.0;190.0;550.0;190.0;50.0;110.0;10.0</additional_attributes>
+    <additional_attributes>60.0;600.0;120.0;600.0;120.0;70.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>824</y>
-      <w>168</w>
-      <h>640</h>
+      <x>512</x>
+      <y>168</y>
+      <w>128</w>
+      <h>600</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bg=black</panel_attributes>
-    <additional_attributes>10.0;780.0;190.0;780.0;190.0;80.0;50.0;10.0</additional_attributes>
+    <additional_attributes>60.0;730.0;140.0;730.0;140.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>112</x>
+      <y>800</y>
+      <w>400</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>/Authentication/
+--
+- controller : RESTController
+--
+/+ auth_get (key : String, username : String, password : String, id : mixed)/
+/+ auth_post (key : String, username : String, password : String, json : String)/
+/+ auth_put (key : String, username : String, password : String, json : String)/
+/+ auth_delete (key : String, username : String, password : String, json : String)/
+bg=green</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>744</y>
-      <w>192</w>
-      <h>736</h>
+      <x>208</x>
+      <y>456</y>
+      <w>256</w>
+      <h>360</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 bg=black</panel_attributes>
-    <additional_attributes>10.0;900.0;220.0;900.0;220.0;90.0;50.0;10.0</additional_attributes>
+    <additional_attributes>10.0;430.0;10.0;90.0;300.0;90.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>632</y>
+      <w>24</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>928</y>
+      <w>240</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>UserAuth
+--
+*SHOULD IMPEMENT ABSTRACT METHODS*
+--
+*TO OVERRIDE METHODS IF REQUIRED*
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>1008</y>
+      <w>240</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>ClientAuth
+--
+*SHOULD IMPEMENT ABSTRACT METHODS*
+--
+*TO OVERRIDE METHODS IF REQUIRED*
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>448</x>
+      <y>552</y>
+      <w>120</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>/RESTController/
+--
+*Library package*
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>408</x>
+      <y>576</y>
+      <w>56</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

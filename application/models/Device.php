@@ -20,7 +20,7 @@ class Device extends \Model
     private $uid;
 
     /** @ORM\Column(type="object") */
-    private $client;
+    private $clientId;
 
     /** @ORM\Column(type="boolean") */
     private $isPassSaved;
@@ -30,19 +30,27 @@ class Device extends \Model
      * @param int $uid
      * @param Client $client
      */
-    public function __construct(int $uid, Client $client)
+    public function __construct(int $uid, int $clientId)
     {
         parent::__construct();
         $this->uid = $uid;
-        $this->client = $client;
+        $this->clientId = $clientId;
     }
 
     /**
-     * @return bool
+     * @return boolean
      */
-    public function savedPass()
+    public function getPassIsSaved()
     {
         return $this->isPassSaved;
+    }
+
+    /**
+     * @param boolean $isPassSaved
+     */
+    public function setPassIsSaved($isPassSaved)
+    {
+        $this->isPassSaved = $isPassSaved;
     }
 
     /**

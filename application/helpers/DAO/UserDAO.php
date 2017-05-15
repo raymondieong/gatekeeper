@@ -9,7 +9,13 @@
 namespace DAO;
 
 
+use models\User;
+
 interface UserDAO extends \DAO
 {
-    // TODO : Invariant revision
+    public function save(User $user);
+
+    public function get($id);
+
+    public function delete(User $user);
 }

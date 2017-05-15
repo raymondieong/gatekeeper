@@ -21,7 +21,6 @@ require_once 'Model.php';
  */
 class Client extends \Model
 {
-
     /**
      * @ORM\Id @ORM\Column(type="integer")
      * @ORM\GeneratedValue
@@ -36,26 +35,55 @@ class Client extends \Model
     /** @ORM\Column(type="string") */
     private $email;
 
-    /** @ORM\Column(type="object") */
-    public $auth; // TODO : Provide operation method
+    /** @ORM\Column(type="integer") */
+    private $user;
 
-    /** @ORM\Column(type="object") */
-    public $user; // TODO : provide operation method
+    /** @ORM\Column(type="integer") */
+    private $authId;
 
     /**
     * Constructor
      * @param string $username
      * @param string $email
+     * @param int $userId
+     * @param int $authId
     */
-    public function __construct(string $username, string $email)
+    public function __construct(string $username, string $email, int $userId, int $authId)
     {
         parent::__construct();
-        //echo $name." passed to client ctor as name!<br/>";
+
         $this->username = $username;
         $this->email = $email;
-      
+        $this->user = $userId;
+        $this->authId = $authId;
         $this->setJSON(json_encode($this->jsonSerialize()));
     }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAuthId()
+    {
+        return $this->authId;
+    }
+
+    /**
+     * @param int $authId
+     */
+    public function setAuthId($authId)
+    {
+        $this->authId = $authId;
+    }
+
+
 
     /**
      * @return string
@@ -72,6 +100,24 @@ class Client extends \Model
     {
         $this->username = $username;
     }
+
+    /**
+     * @return int
+     */
+    public function getUser(): int
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param int $user
+     */
+    public function setUser(int $user)
+    {
+        $this->user = $user;
+    }
+
+
 
     /**
      * @return string

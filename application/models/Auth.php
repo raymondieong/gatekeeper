@@ -19,6 +19,12 @@ require_once 'Model.php';
 class Auth extends \Model
 {
 
+    /**
+     * @ORM\Id @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
+    private $id;
+
     /** @ORM\Column(type="string") */
     private $salt;
 
@@ -26,9 +32,20 @@ class Auth extends \Model
     private $auth_string;
 
     /**
+     * Auth constructor.
+     * @param string $password
+     */
+    public function __construct(string $password)
+    {
+        parent::__construct();
+        $this->encrypt($password);
+    }
+
+
+    /**
      * @return array
      */
-    public function jsonSerialize()
+    public function jsonSerialize() : array
     {
         return [
             'dateCreated' => $this->getDateCreated()->format('Y-m-d H:i:s'),
@@ -41,11 +58,27 @@ class Auth extends \Model
 
     /**
      * @param string $password
-     * @return bool
+     */
+    private function encrypt(string $password)
+    {
+        // TODO : Implement algorithms for authentication
+        // TODO : Generate salt
+
+        // TODO : WARNING! -> NOT SECURE / TEMPORARY
+        $saltVal = rand(10000, 99999);
+        $this->salt = "$saltVal";
+        $this->auth_string = base64_encode($password.$this->salt);
+    }
+
+    /**
+     * @param string $password
+     * @return boolean
      */
     public function authenticate(string $password) : bool
     {
         // TODO : Implement algorithms for authentication
-        return false;
+
+        // TODO : WARNING! -> NOT SECURE / TEMPORARY
+        return ($password.$this->salt == base64_decode($this->auth_string));
     }
 }

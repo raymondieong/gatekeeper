@@ -9,7 +9,13 @@
 namespace DAO;
 
 
+use models\Auth;
+
 interface AuthDAO
 {
-    // TODO : Invariant revision
+    public function save(Auth $auth);
+
+    public function get($id);
+
+    public function delete(Auth $auth);
 }

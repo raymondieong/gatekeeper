@@ -30,14 +30,18 @@ class User extends \Model
 
     /**
      * User constructor.
+     * @param string $data
      */
-    public function __construct()
+    public function __construct(string $data)
     {
         parent::__construct();
-        // TODO : Gen random string
-        $this->data = new Data("random string");
+        $this->data = new Data($data);
     }
 
+    public function __destruct()
+    {
+        unlink($this->data);
+    }
 
     /**
      * @return string
@@ -56,6 +60,16 @@ class User extends \Model
     }
 
     /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+
+    /**
      * @return array
      */
     public function jsonSerialize() : array
@@ -63,9 +77,7 @@ class User extends \Model
         return [
             'id' => $this->id,
             'dateCreated' => $this->getDateCreated()->format('Y-m-d H:i:s'),
-            'dateModified' => $this->getDateModified()->format('Y-m-d H:i:s'),
-            // TODO : Change after 'Data' class is complete.
-            'data' => "data string [TEST]"
+            'dateModified' => $this->getDateModified()->format('Y-m-d H:i:s')
         ];
     }
 }

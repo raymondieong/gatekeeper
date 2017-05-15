@@ -21,9 +21,6 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 
 class ClientDAOImpl extends DAOImpl implements ClientDAO
 {
-
-    public static $lastInsertId;
-	
     /**
      * ClientDAOImpl constructor.
      */
@@ -35,23 +32,25 @@ class ClientDAOImpl extends DAOImpl implements ClientDAO
     public function save(Client $client)
     {
         // The object to be saved is the parameter $client of type "model/Client"
-        try 
+        // TODO : FIX DESIGN
+        try
         {
+
             // TODO : DOC
             $this->em->persist($client);
             // TODO : DOC
             $this->em->flush();
 						
-						$client->updateJSON();
+            $client->updateJSON();
 					
 						// TODO : DOC
             $this->em->persist($client);
             // TODO : DOC
             $this->em->flush();
         } // TODO : DOC
-        catch (\Exception $exception)
-				{
-            die($exception->getMessage());
+        catch (Exception $e)
+        {
+            die($e->getMessage());
         }
         // Method returns true so that the caller code can determine the success of operation.
         // Returned if no exception is thrown/handled.
@@ -62,23 +61,23 @@ class ClientDAOImpl extends DAOImpl implements ClientDAO
     {
       	// TODO: Implement get() method.
       	$client = null;  
-				try 
-				{
-						$client = $this->em->find('models\Client', $id);	
-				}
-				catch (Exception $e)
+        try
+        {
+            $client = $this->em->find('models\Client', $id);
+        }
+        catch (Exception $e)
       	{
-       			// TODO : Handle exceptions
-				}
-				return $client;
+            // TODO : Handle exceptions
+        }
+        return $client;
     }
 
     public function delete(Client $client)
     {
       	// TODO : Implement delete() method.
-				// TODO : Handle FAILURE
-				$this->em->remove($client);
-				$this->em->flush();
+        // TODO : Handle FAILURE
+        $this->em->remove($client);
+        $this->em->flush();
     }
     
 
