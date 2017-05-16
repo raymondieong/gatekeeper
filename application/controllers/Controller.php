@@ -26,7 +26,12 @@ abstract class Controller extends REST_Controller
 
     public function index_get($id)
     {
-        return $this->REST_GET($id);
+        try
+        {
+            $this->REST_GET($id);
+        } catch(exception $e) {
+            echo 'Exception Caught: ', $e->getMessage(), "\n";
+        }
     }
 
     abstract public function REST_GET ($id);
