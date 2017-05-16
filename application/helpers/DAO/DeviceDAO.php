@@ -8,7 +8,6 @@
 
 namespace DAO;
 
-
 use models\Device;
 
 // TODO : DOCUMENTATION

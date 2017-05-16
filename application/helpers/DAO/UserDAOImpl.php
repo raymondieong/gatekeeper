@@ -15,6 +15,16 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 
 class UserDAOImpl extends \DAOImpl implements UserDAO
 {
+
+    /**
+     * UserDAOImpl constructor.
+     * @param $em
+     */
+    public function __construct($em)
+    {
+        parent::__construct($em);
+    }
+
     public function save(User $user)
     {
         $this->em->persist($user);

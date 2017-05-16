@@ -8,13 +8,14 @@
 
 namespace AuthDecorators;
 
+require_once APPPATH."controllers/Controller.php";
+
 use application\helpers\DAO\ClientDAOImpl;
-use Controller;
 use DAO\AuthDAOImpl;
 
 // TODO : DOCUMENTATION
 
-abstract class Authentication extends Controller
+abstract class Authentication extends \Controller
 {
     protected $controller;
 
@@ -22,9 +23,9 @@ abstract class Authentication extends Controller
 
     /**
      * Authentication constructor.
-     * @param Controller $controller
+     * @param \Controller $controller
      */
-    public function __construct(Controller $controller)
+    public function __construct(\Controller $controller)
     {
         $dao = new AuthDAOImpl();
         $this->clientDAO = new ClientDAOImpl();
@@ -45,7 +46,8 @@ abstract class Authentication extends Controller
         }
     }
 
-    public function auth_get($key, $username, $password, $id)
+
+    public function index_get($key, $username, $password, $id)
     {
         if ($this->evaluate($key, $username, $password))
         {
@@ -53,7 +55,7 @@ abstract class Authentication extends Controller
         }
     }
 
-    public function auth_post($key, $username, $password, $json)
+    public function index_post($key, $username, $password, $json)
     {
         if ($this->evaluate($key, $username, $password))
         {
@@ -61,7 +63,7 @@ abstract class Authentication extends Controller
         }
     }
 
-    public function auth_put($key, $username, $password, $json)
+    public function index_put($key, $username, $password, $json)
     {
         if ($this->evaluate($key, $username, $password))
         {
@@ -69,7 +71,7 @@ abstract class Authentication extends Controller
         }
     }
 
-    public function auth_delete($key, $username, $password, $json)
+    public function index_delete($key, $username, $password, $json)
     {
         if ($this->evaluate($key, $username, $password))
         {

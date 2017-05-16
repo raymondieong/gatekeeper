@@ -15,6 +15,17 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 
 class AuthDAOImpl extends \DAOImpl implements AuthDAO
 {
+
+
+    /**
+     * AuthDAOImpl constructor.
+     * @param $em
+     */
+    public function __construct($em)
+    {
+        parent::__construct($em);
+    }
+
     public function save(Auth $auth)
     {
         $this->em->persist($auth);

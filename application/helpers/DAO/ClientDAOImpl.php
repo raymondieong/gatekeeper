@@ -23,10 +23,11 @@ class ClientDAOImpl extends DAOImpl implements ClientDAO
 {
     /**
      * ClientDAOImpl constructor.
+     * @param $em
      */
-    public function __construct()
+    public function __construct($em)
     {
-        parent::__construct();
+        parent::__construct($em);
     }
 	
     public function save(Client $client)

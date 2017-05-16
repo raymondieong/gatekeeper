@@ -8,6 +8,7 @@
 
 namespace DAO;
 
+require_once APPPATH.'helpers/DAO/DeviceDAO.php';
 
 use application\helpers\DAO\ClientDAOImpl;
 use DateTime;
@@ -20,10 +21,11 @@ class DeviceDAOImpl extends \DAOImpl implements DeviceDAO
     private $clientDAO;
     /**
      * ClientDAOImpl constructor.
+     * @param $em
      */
-    public function __construct()
+    public function __construct($em)
     {
-        parent::__construct();
+        parent::__construct($em);
     }
 
     public function save(Device $device)

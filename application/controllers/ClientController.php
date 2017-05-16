@@ -7,7 +7,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * Time: 11:31 PM
  */
 require_once APPPATH.'helpers/DAO/ClientDAOImpl.php';
+require_once APPPATH.'helpers/DAO/DeviceDAOImpl.php';
 require_once APPPATH.'libraries/REST_Controller.php';
+require_once 'Controller.php';
 use application\helpers\DAO\ClientDAOImpl;
 use models\Client;
 use models\Device;
@@ -17,17 +19,20 @@ use \Crypto\DeviceUID;
 // TODO : Handle existing stuff like existing username and email.
 // TODO : DOCUMENTATION
 
-class ClientController extends Controller
+class ClientController extends \Controller
 {
     private $deviceDAO;
 
     function __construct ()
     {
-        $the_dao = new ClientDAOImpl();
-        parent::__construct($the_dao);
+        parent::__construct();
+        $this->load->library('doctrine');
+        $em = $this->doctrine->em;
+        $the_dao = new ClientDAOImpl($em);
+        $this->dao = $the_dao;
         $this->load->helper('url');
         // TODO : CHANGE
-        $this->deviceDAO = new \DAO\DeviceDAOImpl();
+        $this->deviceDAO = new \DAO\DeviceDAOImpl($em);
     }
 	
     public function get ($key=NULL, $xss_clean=NULL): Client
@@ -123,5 +128,10 @@ class ClientController extends Controller
     public function REST_DELETE(string $json)
     {
         $this->delete($json);
+    }
+
+    public function index()
+    {
+        echo "Access Denied";
     }
 }
