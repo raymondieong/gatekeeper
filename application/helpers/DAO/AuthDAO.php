@@ -18,4 +18,10 @@ interface AuthDAO
     public function get($id);
 
     public function delete(Auth $auth);
+
+    public function encrypt(int $id, string $password);
+
+    public function decrypt(int $id, string $password);
+
+    public function validateKey (string $key);
 }

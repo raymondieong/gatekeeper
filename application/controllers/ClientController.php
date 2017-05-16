@@ -23,9 +23,9 @@ class ClientController extends Controller
 
     function __construct ()
     {
-        parent::__construct();
+        $the_dao = new ClientDAOImpl();
+        parent::__construct($the_dao);
         $this->load->helper('url');
-        $this->dao = new ClientDAOImpl();
         // TODO : CHANGE
         $this->deviceDAO = new \DAO\DeviceDAOImpl();
     }

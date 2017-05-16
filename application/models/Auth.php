@@ -41,6 +41,47 @@ class Auth extends \Model
         $this->encrypt($password);
     }
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSalt(): string
+    {
+        return $this->salt;
+    }
+
+    /**
+     * @param string $salt
+     */
+    public function setSalt(string $salt)
+    {
+        $this->salt = $salt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuthString(): string
+    {
+        return $this->auth_string;
+    }
+
+    /**
+     * @param string $auth_string
+     */
+    public function setAuthString(string $auth_string)
+    {
+        $this->auth_string = $auth_string;
+    }
+    
+    
 
     /**
      * @return array
@@ -53,32 +94,5 @@ class Auth extends \Model
             'salt' => $this->salt,
             'auth_string' => $this->auth_string
         ];
-    }
-
-
-    /**
-     * @param string $password
-     */
-    private function encrypt(string $password)
-    {
-        // TODO : Implement algorithms for authentication
-        // TODO : Generate salt
-
-        // TODO : WARNING! -> NOT SECURE / TEMPORARY
-        $saltVal = rand(10000, 99999);
-        $this->salt = "$saltVal";
-        $this->auth_string = base64_encode($password.$this->salt);
-    }
-
-    /**
-     * @param string $password
-     * @return boolean
-     */
-    public function authenticate(string $password) : bool
-    {
-        // TODO : Implement algorithms for authentication
-
-        // TODO : WARNING! -> NOT SECURE / TEMPORARY
-        return ($password.$this->salt == base64_decode($this->auth_string));
     }
 }

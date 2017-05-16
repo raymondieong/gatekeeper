@@ -2,20 +2,21 @@
 /**
  * Created by PhpStorm.
  * User: myazdani
- * Date: 5/15/2017
- * Time: 4:21 PM
+ * Date: 5/16/2017
+ * Time: 11:02 AM
  */
 
 namespace AuthDecorators;
 
-class UserAuth extends Authentication
+
+class ClientAuth extends Authentication
 {
     /**
-     * UserAuth constructor.
+     * ClientAuth constructor.
      */
     public function __construct()
     {
-        $controller = new \UserController();
+        $controller = new \ClientController();
         parent::__construct($controller);
     }
 }

@@ -11,6 +11,7 @@ namespace DAO;
 
 use DateTime;
 use models\Auth;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 class AuthDAOImpl extends \DAOImpl implements AuthDAO
 {
@@ -29,13 +30,73 @@ class AuthDAOImpl extends \DAOImpl implements AuthDAO
 
     public function get($id)
     {
-
+        $auth = null;
+        try
+        {
+            $auth = $this->em->find('models\auth', $id);
+        }
+        catch (Exception $e)
+        {
+            log_message('error',
+                "Failed to get Auth object from database. Exception: ".$e->getMessage());
+            $auth = null;
+        }
+        return $auth;
     }
 
     public function delete(Auth $auth)
     {
-        // TODO: Implement delete() method.
+        $auth = $this->get($auth->getId());
+        if ($auth != null)
+        {
+            try
+            {
+                $this->em->remove($auth);
+            }
+            catch (Exception $e)
+            {
+                log_message('error',
+                    "Failed to delete Auth object with from database. Exception: ".$e->getMessage());
+                return false;
+            }
+        }
+        return true;
     }
+
+    /**
+     * @param int $id
+     * @param string $password
+     */
+    public function encrypt(int $id, string $password)
+    {
+        $auth = $this->get($id);
+        // TODO : Implement algorithms for authentication
+        // TODO : Generate salt
+
+        // TODO : WARNING! -> NOT SECURE / TEMPORARY
+        $auth->setSalt("saltVal");
+        $auth->setAuthString(base64_encode($password.$auth->getSalt()));
+    }
+
+    /**
+     * @param int $id
+     * @param string $password
+     * @return boolean
+     */
+    public function decrypt(int $id, string $password) : bool
+    {
+        $auth = $this->get($id);
+        // TODO : Implement algorithms for authentication
+
+        // TODO : WARNING! -> NOT SECURE / TEMPORARY
+        return ($password."".$auth->getSalt() == base64_decode($auth->getAuthString()));
+    }
+
+    public function validateKey(string $key)
+    {
+        return strpos($key, "saltVal");
+    }
+
 
     public function getByDateCreated(DateTime $date)
     {
@@ -51,5 +112,4 @@ class AuthDAOImpl extends \DAOImpl implements AuthDAO
     {
         // TODO: Implement getByJSON() method.
     }
-
 }

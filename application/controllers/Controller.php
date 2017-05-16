@@ -13,6 +13,17 @@ abstract class Controller extends REST_Controller
 {
     protected $dao;
 
+    /**
+     * Controller constructor.
+     * @param \DAO $dao
+     */
+    public function __construct(\DAO $dao)
+    {
+        parent::__construct();
+        $this->dao = $dao;
+    }
+
+
     abstract public function REST_GET ($id);
     abstract public function REST_POST (string $json);
     abstract public function REST_PUT (string $json);
